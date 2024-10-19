@@ -1,3 +1,4 @@
+# pip install nltk spacy sklearn textblob gensim
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
