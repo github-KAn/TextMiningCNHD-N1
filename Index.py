@@ -5,6 +5,7 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from textblob import TextBlob
 import ssl
+from spacy.lang.vi.stop_words import STOP_WORDS
 
 # Bỏ qua chứng chỉ SSL để tránh lỗi tải xuống
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -25,8 +26,8 @@ text_data = text_data.lower()
 tokens = word_tokenize(text_data)
 
 # 3. Loại bỏ từ dừng (Stopwords)
-tokens = [word for word in tokens if word.isalpha() and word not in stopwords.words('english')]
-
+# tokens = [word for word in tokens if word.isalpha() and word not in stopwords.words('english')]
+tokens = [word for word in tokens if word.isalpha() and word not in STOP_WORDS]
 # 4. Lemmatization (Chuyển về thể gốc)
 lemmatizer = WordNetLemmatizer()
 tokens = [lemmatizer.lemmatize(token) for token in tokens]
@@ -41,3 +42,7 @@ sentiment = blob.sentiment
 # In kết quả
 print(f"Văn bản sau khi xử lý: {processed_text}")
 print(f"Phân tích cảm xúc: {sentiment}")
+
+#Ghi kết quả ra file
+with open('processed_text.txt', 'w', encoding='utf-8') as file:
+    file.write(processed_text)
