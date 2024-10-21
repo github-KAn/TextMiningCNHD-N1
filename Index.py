@@ -16,7 +16,7 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 
 # Đọc dữ liệu từ file .txt
-with open('sample_text.txt', 'r', encoding='utf-8') as file:
+with open('sample_text_vi.txt', 'r', encoding='utf-8') as file:
     text_data = file.read()
 
 # 1. Chuyển thành chữ thường
@@ -26,8 +26,8 @@ text_data = text_data.lower()
 tokens = word_tokenize(text_data)
 
 # 3. Loại bỏ từ dừng (Stopwords)
-# tokens = [word for word in tokens if word.isalpha() and word not in stopwords.words('english')]
-tokens = [word for word in tokens if word.isalpha() and word not in STOP_WORDS]
+tokens = [word for word in tokens if word.isalpha() and word not in stopwords.words('english')]
+# tokens = [word for word in tokens if word.isalpha() and word not in STOP_WORDS]
 # 4. Lemmatization (Chuyển về thể gốc)
 lemmatizer = WordNetLemmatizer()
 tokens = [lemmatizer.lemmatize(token) for token in tokens]
