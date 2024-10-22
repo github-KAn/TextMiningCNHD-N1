@@ -6,26 +6,26 @@ from pyvi import ViTokenizer, ViPosTagger
 def remove_punctuation(text):
     punctuation_free="".join([i for i in text if i not in string.punctuation])
     return punctuation_free
-# # Load Vietnamese tokenizer, tagger, parser, NER and word vectors
+
+# Đối tượng "nlp"  được dùng để tạo documents với chú thích ngôn ngữ (linguistic annotations).
 nlp_vi = Vietnamese()
 nlp_en=English()
+
 #Khai báo tên file path để đọc
-# file_name='Luat\\bo-luat-dan-su'
 file_name="CNHD_textmining_gt"
 # Đọc dữ liệu từ file .txt
 with open('Vi_sample\\'+file_name+".txt", 'r', encoding='utf-8') as file:
     text = file.read()
 
 
-#  "nlp" Object is used to create documents with linguistic annotations.
-
+#Loại bỏ từ
 print(" văn bản gốc:\n",text)
 text=remove_punctuation(text)
 text=re.sub("[-\n]","",text)
 
 my_doc = nlp_vi(text)
 
-# Create list of word tokens
+# Tạo danh sách tokens từ
 token_list = []
 for token in my_doc:
     token_list.append(token.text)

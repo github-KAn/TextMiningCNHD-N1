@@ -3,7 +3,7 @@ from collections import Counter
 from idlelib.iomenu import encoding
 from math import log
 
-import Index,spacy_NPL,nltk,ssl
+import Index,process_data_spacy_vi,nltk,ssl
 from nltk.corpus import stopwords
 from nltk.util import bigrams
 from nltk.util import ngrams
@@ -94,13 +94,38 @@ for word, count in sorted_words:
     BOW+=f"{word:14}: {count:3}  |"
     word_per_line += 1
     # print(f"{word}: {count}")
+word_per_line=0
 print(type(word_counts))
 print("BOW:",BOW)
 
 #N-gram
-print("Uni-gram:",list(ngrams(out_tokens,1)))
-print("Bi-gram:",list(ngrams(out_tokens,2)))
-print("Tri-gram:",list(ngrams(out_tokens,3)))
+print("Uni-gram:")
+#in uni-gram
+uni_gram=list(ngrams(out_tokens,1))
+for e in uni_gram:
+    if (word_per_line%10)==0:
+        print("")
+    print(f"{e}", end="  ")
+    word_per_line +=1
+word_per_line=0
+print("\nBi-gram:")
+#in bi-gram
+bi_gram=list(ngrams(out_tokens,2))
+for e in bi_gram:
+    if (word_per_line%10)==0:
+        print("")
+    print(f"{e}", end="  ")
+    word_per_line +=1
+word_per_line=0
+#in tri-gram
+print("\nTri-gram:")
+tri_gram=list(ngrams(out_tokens,3))
+for e in tri_gram:
+    if (word_per_line%10)==0:
+        print("")
+    print(f"{e},{e[1]}", end="  ")
+    word_per_line +=1
+word_per_line=0
 #TF-IDF
 # doc1="Ben Studies Computer Lab"
 # doc2="Steve teaches Brown University"

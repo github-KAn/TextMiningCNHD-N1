@@ -20,3 +20,39 @@ for word in freq:
 
 # Frequency of terms in the document
 print("freq of term: ",word_freq)
+
+
+# import required module
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+# Gán giá trị cho tài liệu
+d0 = 'The cat jumped'
+d1 = 'The white tiger roared'
+d2 = 'Bird flying in the sky'
+
+# Kết hợp tài liệu vào một tập hợp
+# string = [d0, d1, d2]
+string= ["The cat jumped",
+        "The white tiger roared",
+        "Bird flying in the sky"]
+# Tạo đối tượng TfidfVectorier
+tfidf = TfidfVectorizer()
+# get tf-df values
+result = tfidf.fit_transform(string)
+
+# Lấy giá trị idf
+print('\nidf values:')
+for ele1, ele2 in zip(tfidf.get_feature_names_out(), tfidf.idf_):
+    print(ele1, ':', ele2)
+
+# Lấy chỉ số index
+print('\nWord indexes:')
+print(tfidf.vocabulary_)
+
+# display tf-idf values
+print('\ntf-idf value:')
+print(result)
+
+# in matrix form
+print('\ntf-idf values in matrix form:')
+print(result.toarray())
