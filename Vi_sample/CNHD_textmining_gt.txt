@@ -1,0 +1,21 @@
+I. Text mining là gì?
+  - Text mining (khai thác văn bản) là quá trình sử dụng các công cụ và kỹ thuật để trích xuất thông tin có giá trị từ các nguồn dữ liệu văn bản lớn, không có cấu trúc từ các nguồn có sẵn như trang web, mạng xã hội, báo cáo, bài viết, khảo sát ,..
+II. Ứng dụng của text mining
+  1. Text mining dùng để làm gì?
+  - Text mining được sử dụng để chuyển đổi văn bản phi cấu trúc thành dữ liệu có cấu trúc nhằm phục vụ cho việc phân tích, giúp tìm ra các xu hướng, thông tin hữu ích hoặc dự đoán các sự kiện tương lai. Các nhiệm vụ phổ biến của text mining:
+    + Phân loại tài liệu (text categorization, text classification)
+    + Phân tích cảm xúc (sentiment analysis)
+    + Trích xuất thực thể (concept/entity extraction)
+    + trích xuất quan hệ giữa các thực thể (entity relation modeling)
+    + Tóm tắt tài liệu (document/text summarization)
+    + Phân nhóm văn bản (text clustering)
+  2. Các lĩnh vực ứng dụng của text mining
+  - Khai thác thông tin (Information Extraction): Việc trích xuất thông tin từ các nguồn dữ liệu phi cấu trúc như văn bản giúp các tổ chức hiểu rõ hơn về khách hàng và đối thủ.
+  - Xử lý ngôn ngữ tự nhiên (NLP – Natural Language Processing): NLP là một thành phần quan trọng của trí tuệ nhân tạo, giúp máy tính hiểu ngôn ngữ con người. Với NLP, Text mining có thể phân tích các văn bản tự nhiên như phản hồi khách hàng hoặc thông tin trên mạng xã hội.
+  - Khai phá dữ liệu (Data Mining): Text mining là một nhánh của Data mining, giúp trích xuất thông tin quan trọng từ các tập dữ liệu khổng lồ. Bằng cách kết hợp các công cụ phân tích dữ liệu, doanh nghiệp có thể dự đoán xu hướng tương lai và đưa ra quyết định thông minh hơn.
+  - Truy xuất thông tin (Information Retrieval): Text mining không chỉ giúp truy xuất thông tin từ hệ thống mà còn áp dụng trên các trang web thương mại điện tử, giúp người dùng tìm kiếm sản phẩm và dịch vụ một cách dễ dàng.
+  3. Ứng dụng thực tiễn của text mining
+  - Quản lý rủi ro (Risk Management): Phân tích rủi ro là một phần quan trọng trong việc quản lý doanh nghiệp, đặc biệt trong các ngành tài chính. Text mining giúp phân tích hàng triệu tài liệu văn bản, từ đó đưa ra các chiến lược giảm thiểu rủi ro hiệu quả.
+  - Dịch vụ khách hàng (Customer Care Service): Text mining, đặc biệt qua NLP, giúp các tổ chức hiểu rõ hơn về phản hồi của khách hàng, từ đó cải thiện dịch vụ và giảm thời gian xử lý khiếu nại.
+  - Trí tuệ doanh nghiệp (Business Intelligence): Doanh nghiệp sử dụng Text mining để hiểu sâu hơn về hành vi khách hàng và phân tích đối thủ cạnh tranh. Điều này giúp doanh nghiệp phát triển chiến lược kinh doanh tốt hơn, nâng cao lợi thế cạnh tranh trên thị trường.
+  - Phân tích mạng xã hội (Social Media Analysis): Công cụ Text mining còn giúp các doanh nghiệp theo dõi hiệu suất truyền thông xã hội. Từ đó, họ có thể đánh giá mức độ tương tác của thương hiệu với khách hàng thông qua số lượng bài đăng, bình luận, và lượt thích.

@@ -1,0 +1,22 @@
+new_list=["a","a", "a","a","b"]
+text_collection=TextCollection(out_tokens)
+print("\n text \n")
+for text in new_list:
+    print(text+":"+str(text_collection.tf_idf(text,new_list)))
+
+words=out_tokens
+word_freq = {}
+freq = {}
+for word in words:
+    if word not in freq:
+        freq[word] = 0
+    # Increment the frequency of the word for a sentence
+    freq[word] += 1
+for word in freq:
+    if word not in word_freq:
+        word_freq[word] = 0
+    # Increment the frequency of the word overall
+    word_freq[word] += 1
+
+# Frequency of terms in the document
+print("freq of term: ",word_freq)
