@@ -12,7 +12,7 @@ nlp_vi = Vietnamese()
 nlp_en=English()
 
 #Khai báo tên file path để đọc
-file_name="CNHD_textmining_gt"
+file_name="bao_so_6"
 # Đọc dữ liệu từ file .txt
 with open('Vi_sample\\'+file_name+".txt", 'r', encoding='utf-8') as file:
     text = file.read()
@@ -21,7 +21,7 @@ with open('Vi_sample\\'+file_name+".txt", 'r', encoding='utf-8') as file:
 #Loại bỏ từ
 print(" văn bản gốc:\n",text)
 text=remove_punctuation(text)
-text=re.sub("[-\n]","",text)
+text=re.sub("[-\n]"," ",text)
 
 my_doc = nlp_vi(text)
 
@@ -37,7 +37,7 @@ for word in token_list:
     # print(word)
     lexeme_vi = nlp_vi.vocab[word]
     lexeme_en= nlp_en.vocab[word]
-    if (not (lexeme_vi.is_stop==True or lexeme_en.is_stop==True or word.isspace() or (word in string.punctuation))):
+    if (not (lexeme_vi.is_stop==True or word.isspace() or (word in string.punctuation))):
         filtered_words.append(word)
 
 #In ra list các tokens và list các token sau khi loại bỏ từ dừng

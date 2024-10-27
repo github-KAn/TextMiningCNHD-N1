@@ -3,7 +3,7 @@ from collections import Counter
 from idlelib.iomenu import encoding
 from math import log
 
-import Index,process_data_spacy_vi,nltk,ssl
+import Index,process_data_spacy_vi,nltk,ssl, pandas as pd
 from nltk.corpus import stopwords
 from nltk.util import bigrams
 from nltk.util import ngrams
@@ -18,7 +18,7 @@ nltk.download('punkt_tab')
 nltk.download('stopwords')
 nltk.download('wordnet')
 
-out_tokens=spacy_NPL.filtered_words
+out_tokens=process_data_spacy_vi.filtered_words
 
 def termFrequency(term, doc):
     """
@@ -126,17 +126,8 @@ for e in tri_gram:
     print(f"{e},{e[1]}", end="  ")
     word_per_line +=1
 word_per_line=0
-#TF-IDF
-# doc1="Ben Studies Computer Lab"
-# doc2="Steve teaches Brown University"
-# doc3="Data scientists work large datasets"
-# # doc4=[doc1,doc2,doc3]
-# doc4={"doc1":doc1,"doc2":doc2,"doc3":doc3}
-# doc4_str=doc1+doc2+doc3
-# doc4_token=word_tokenize(doc4_str.lower())
-# doc4_token=[word for word in doc4_token if word.isalpha() and word not in stopwords.words('english')]
-# for term in doc4_token:
-#     print(f"{term}: {inverseDocumentFrequency(term,doc4)}")
+
+
 
 # import required module
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -148,29 +139,20 @@ d2 = 'r2j'
 # merge documents into a single corpus
 string = [d0, d1, d2]
 # create object
-tfidf = TfidfVectorizer()
 
-# get tf-df values
-result = tfidf.fit_transform(string)
+vectorizer = TfidfVectorizer()
+vectorizer.smooth_idf=False
 
-# get idf values
-print('\nidf values:')
-for ele1, ele2 in zip(tfidf.get_feature_names_out(), tfidf.idf_):
-    print(ele1, ':', ele2)
-
-# get indexing
-print('\nWord indexes:')
-print(tfidf.vocabulary_)
-
-# display tf-idf values
-print('\ntf-idf value:')
-print(result)
-
-# in matrix form
-print('\ntf-idf values in matrix form:')
-print(result.toarray())
-
-with open('Processed Results/bow_text_rep.txt', 'w', encoding='utf-8') as file:
-    file.write(str(word_counts))
+data={}
+X = vectorizer.fit_transform(string)
+ft_names=vectorizer.get_feature_names_out()
+print(ft_names)
+a=X.toarray()
+print(len(ft_names))
+for i in range(len(ft_names)):
+    data[string[i]]=a[i]
+df=pd.DataFrame(data,index=ft_names)
+print(df.to_string())
+print(df.transpose())
 
 
