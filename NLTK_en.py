@@ -1,5 +1,5 @@
 # pip install nltk spacy sklearn textblob gensim
-import nltk
+import nltk, pickle
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer

@@ -3,7 +3,7 @@ from collections import Counter
 from idlelib.iomenu import encoding
 from math import log
 
-import Index,process_data_spacy_vi,nltk,ssl, pandas as pd
+import pickle,preprocess_data_vi,nltk,ssl, pandas as pd
 from nltk.corpus import stopwords
 from nltk.util import bigrams
 from nltk.util import ngrams
@@ -18,7 +18,7 @@ nltk.download('punkt_tab')
 nltk.download('stopwords')
 nltk.download('wordnet')
 
-out_tokens=process_data_spacy_vi.filtered_words
+out_tokens=pickle.load(open("filtered_words.pkl","rb"))
 
 def termFrequency(term, doc):
     """
