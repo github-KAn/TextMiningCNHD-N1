@@ -4,12 +4,17 @@ from spacy.lang.en import English
 from pyvi import ViTokenizer, ViPosTagger
 from tqdm import tqdm
 import numpy as np
+
+from preprocess_data_vi import nlp_en
+
+
 def remove_punctuation(data):
     punctuation_free="".join([i for i in data if i not in string.punctuation])
     return punctuation_free
 def process_data(data):
     # Đối tượng "nlp"  được dùng để tạo documents với chú thích ngôn ngữ (linguistic annotations).
     nlp_vi = Vietnamese()
+    nlp_en=English()
     data = remove_punctuation(data)
     data = re.sub("[-\n]", " ", data)
 
