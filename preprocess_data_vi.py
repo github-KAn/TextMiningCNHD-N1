@@ -1,7 +1,7 @@
 import spacy,regex,re,string,nltk,pickle
 from spacy.lang.vi import Vietnamese
 from spacy.lang.en import English
-from pyvi import ViTokenizer, ViPosTagger
+
 
 def remove_punctuation(text):
     punctuation_free="".join([i for i in text if i not in string.punctuation])
@@ -12,9 +12,9 @@ nlp_vi = Vietnamese()
 nlp_en=English()
 
 #Khai báo tên file path để đọc
-file_name="bao_so_6"
+file_name="Nguy_co_lu_quet_sat_lo_dat_sau_bao_so_6"
 # Đọc dữ liệu từ file .txt
-with open('Vi_sample\\'+file_name+".txt", 'r', encoding='utf-8') as file:
+with open('Vi_sample\\News\\bao_moi\\'+file_name+".txt", 'r', encoding='utf-8') as file:
     text = file.read()
 
 
@@ -48,10 +48,9 @@ processed_text = ' '.join(filtered_words)
 #Ghi kết quả ra file
 with open('Processed Results\\'+file_name+"_preprocessed.txt", 'w', encoding='utf-8') as file:
     file.write(processed_text)
-pickle.dump(filtered_words,open("filtered_words.pkl","wb"))
+pickle.dump(filtered_words,open("data/filtered_words.pkl","wb"))
 
-# print(ViTokenizer.tokenize(u"Text mining (khai thác văn bản) là quá trình sử dụng các công cụ và kỹ thuật để trích xuất thông tin có giá trị từ các nguồn dữ liệu văn bản lớn, không có cấu trúc từ các nguồn có sẵn như trang web, mạng xã hội, báo cáo, bài viết, khảo sát,..")
-# )
+# print(ViTokenizer.tokenize(u"Text mining (khai thác văn bản) là quá trình sử dụng các công cụ và kỹ thuật để trích xuất thông tin có giá trị từ các nguồn dữ liệu văn bản lớn, không có cấu trúc từ các nguồn có sẵn như trang web, mạng xã hội, báo cáo, bài viết, khảo sát,.."))
 # my_doc=ViTokenizer.tokenize(u"Text mining (khai thác văn bản) là quá trình sử dụng các công cụ và kỹ thuật để trích xuất thông tin có giá trị từ các nguồn dữ liệu văn bản lớn, không có cấu trúc từ các nguồn có sẵn như trang web, mạng xã hội, báo cáo, bài viết, khảo sát,..")
 #
 # print(my_doc)

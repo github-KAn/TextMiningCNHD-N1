@@ -40,9 +40,17 @@ def get_data(folder_path):
     for path in tqdm(dirs):
         file_paths = os.listdir(os.path.join(folder_path, path))
         for file_path in tqdm(file_paths):
-            with open(os.path.join(folder_path, path, file_path), 'r', encoding="utf-16") as f:
-                text=f.read()
-                X.append(process_data(text))
+            with open(os.path.join(folder_path, path, file_path), 'r', encoding="utf-8") as f:
+                # text=f.read()
+                # X.append(process_data(text))
+                # y.append(path)
+                lines = f.readlines()
+                lines = ' '.join(lines)
+                lines = gensim.utils.simple_preprocess(lines)
+                lines = ' '.join(lines)
+                lines = ViTokenizer.tokenize(lines)
+
+                X.append(lines)
                 y.append(path)
     return X, y
 

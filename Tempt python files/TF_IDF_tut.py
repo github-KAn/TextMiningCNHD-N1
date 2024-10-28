@@ -27,6 +27,7 @@ X = vectorizer.fit_transform(corpus)
 ft_names=vectorizer.get_feature_names_out()
 print(ft_names)
 a=X.toarray()
+print(a)
 print(len(ft_names))
 for i in range(len(ft_names)):
     data[corpus[i]]=a[i]

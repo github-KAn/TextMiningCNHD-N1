@@ -1,5 +1,5 @@
 # pip install nltk spacy sklearn textblob gensim
-import nltk
+import nltk,pickle
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
@@ -46,3 +46,4 @@ print(f"Phân tích cảm xúc: {sentiment}")
 #Ghi kết quả ra file
 with open('processed_text.txt', 'w', encoding='utf-8') as file:
     file.write(processed_text)
+pickle.dump(tokens,open("data/filtered_words_en.pkl","wb"))
